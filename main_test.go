@@ -4,8 +4,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
-	"github.com/davecgh/go-spew/spew"
 )
 
 func TestRootRouteHandler(t *testing.T) {
@@ -27,7 +25,6 @@ func TestRootRouteHandler(t *testing.T) {
 	expected := `{"healthy":true}` + "\n"
 
 	if requestRecorder.Body.String() != expected {
-		spew.Dump(requestRecorder.Body.String(), expected)
 		t.Errorf("handler returned unexpected body: got %v want %v",
 			requestRecorder.Body.String(), expected)
 	}
